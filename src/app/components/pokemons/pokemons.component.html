@@ -1,0 +1,32 @@
+<div class="container">
+
+    <div class="d-flex flex-column">
+        <h1 class="mt-5 text-center">POKÉMON CARDS</h1>
+        <div class="d-flex flex-row-reverse">
+            <button type="button" [ngClass]="[btnStyleList]" (click)="changeView()">
+                <mat-icon>view_list</mat-icon>
+            </button>
+            <button type="button" [ngClass]="[btnStyleGrid]" (click)="changeView()">
+                <mat-icon>view_module</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <ul *ngIf="list" class="list-group">
+        <li class="list-group-item list-group-item-action animate__animated animate__bounce animate__fadeIn"
+            *ngFor="let pokemon of pokemons">
+            <app-card [pokemon]="pokemon" [routerLink]="['/pokemon', pokemon.id]"></app-card>
+        </li>
+    </ul>
+
+    <mat-grid-list *ngIf="!list" cols="3" rowHeight="400px">
+        <mat-grid-tile *ngFor="let pokemon of pokemons">
+            <app-grid [pokemon]="pokemon" [routerLink]="['/pokemon', pokemon.id]"
+                class="p-3 border border-warning bg-success-subtle rounded animate__animated animate__bounce animate__fadeIn">
+            </app-grid>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>
+
+<mat-spinner *ngIf="loading"></mat-spinner>

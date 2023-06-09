@@ -1,0 +1,13 @@
+app-card:hover {
+  cursor: pointer;
+}
+
+app-grid:hover {
+  cursor: pointer;
+}
+
+mat-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}

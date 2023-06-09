@@ -1,0 +1,113 @@
+<div class="center">
+    <mat-card class="example-card mt-5">
+        <div *ngIf="pokemon"
+            class="col-md-10 row animate__animated animate__bounce animate__fadeIn d-flex justify-content-center">
+            <mat-card-header class="d-flex justify-content-between">
+                <div>
+                    <mat-card-title>{{pokemon.name}}</mat-card-title>
+                    <mat-card-subtitle>{{pokemon.id}}</mat-card-subtitle>
+                </div>
+                <span><a class="btn btn-danger" routerLink="/">Back</a></span>
+            </mat-card-header>
+            <img mat-card-image style="width: 80%; height: 80%;" class="rounded" src="{{pokemon.image + '/high.webp'}}"
+                (error)="onImageError($event);" onerror="onerror=true" class="text-center"
+                alt="Imagen de la carta pokemon de {{pokemon.name}}">
+
+            <mat-card-content>
+
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Show all details
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <mat-accordion>
+                            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Local ID:
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        {{pokemon.localId}}
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                Card local ID
+                            </mat-expansion-panel>
+
+                            <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Category:
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        {{pokemon.category}}
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                Card category (pokemon, energy, trainer)
+                            </mat-expansion-panel>
+
+                            <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Rarity:
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        {{pokemon.rarity}}
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                Card rarity
+                            </mat-expansion-panel>
+
+                            <mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        HP:
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        {{pokemon.hp}}
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                The pokémon HP
+                            </mat-expansion-panel>
+
+                            <mat-expansion-panel [expanded]="step === 6" (opened)="setStep(6)">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Types:
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        {{pokemon.types}}
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                The types of the Pokémon.
+                            </mat-expansion-panel>
+
+                            <mat-expansion-panel [expanded]="step === 7" (opened)="setStep(7)">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Evolve from:
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        {{pokemon.evolveFrom}}
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                The Pokémon name it evolve from
+                            </mat-expansion-panel>
+
+                            <mat-expansion-panel [expanded]="true">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Description:
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                {{pokemon.description}}
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-card-content>
+        </div>
+    </mat-card>
+</div>

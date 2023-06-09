@@ -1,0 +1,8 @@
+<a class="d-flex flex-column text-black text-decoration-none text-center">
+    <div>
+        <strong>{{pokemon.id}}<mat-divider class="mx-5"></mat-divider>{{pokemon.name}}</strong>
+    </div>
+    <img mat-card-image style="width: 80%; height: 80%; margin:auto;" class="rounded"
+        src="{{pokemon.image + '/low.webp'}}" onerror="onerror=true; display: none"
+        class="d-flex justify-content-center" alt="Imagen de la carta pokemon de {{pokemon.name}}">
+</a>
